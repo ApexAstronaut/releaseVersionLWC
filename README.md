@@ -8,7 +8,8 @@ A Lightning Web Component that displays the current instance, release version, a
 - 🛡️ "Hyperforce Aware": Handles missing release version data with a witty fallback message.
 
 ## Setup Instructions
-1. Deploy the code to your org. <a href="https://githubsfdeploy.herokuapp.com?owner=ApexAstronaut&repo=releaseVersionLWC">
+1. Deploy the code to your org.
+<a href="https://githubsfdeploy.herokuapp.com?owner=ApexAstronaut&repo=releaseVersionLWC&ref=main">
   <img alt="Deploy to Salesforce"
        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
 </a>
