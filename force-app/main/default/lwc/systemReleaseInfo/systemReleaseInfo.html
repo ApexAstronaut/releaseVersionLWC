@@ -1,0 +1,75 @@
+<template>
+    <lightning-card icon-name="utility:info_alt" title="System Release Info">
+        <div class="slds-p-horizontal_small">
+            
+            <template if:true={systemInfo.data}>
+                <div class="slds-grid slds-grid_vertical slds-gutters_xx-small">
+                    
+                    <div class="slds-col slds-var-p-vertical_xx-small">
+                        <div class="slds-grid slds-gutters_x-small">
+                            <div class="slds-col slds-grow-none">
+                                <lightning-icon icon-name="utility:setup" size="x-small" class="slds-m-right_xx-small"></lightning-icon>
+                            </div>
+                            <div class="slds-col">
+                                <p class="slds-text-heading_small slds-text-title_bold">
+                                    {systemInfo.data.releaseVersion}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-col slds-var-p-bottom_xx-small">
+                        <div class="slds-grid slds-gutters_x-small">
+                            <div class="slds-col slds-grow-none">
+                                <lightning-icon icon-name="utility:desktop" size="x-small" class="slds-m-right_xx-small"></lightning-icon>
+                            </div>
+                            <div class="slds-col">
+                                <p class="slds-text-body_regular">
+                                    Instance: <strong>{systemInfo.data.instanceName}</strong>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-col slds-var-p-bottom_xx-small">
+                        <div class="slds-grid slds-gutters_x-small">
+                            <div class="slds-col slds-grow-none">
+                                <lightning-icon icon-name="utility:success" size="x-small" class="slds-icon-text-success slds-m-right_xx-small"></lightning-icon>
+                            </div>
+                            <div class="slds-col">
+                                <p class="slds-text-body_regular">
+                                    Status: <strong class={systemInfo.data.statusColor}>{systemInfo.data.status}</strong>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-col">
+                        <div class="slds-grid slds-gutters_x-small">
+                            <div class="slds-col slds-grow-none">
+                                <lightning-icon icon-name="utility:clock" size="x-small" class="slds-m-right_xx-small"></lightning-icon>
+                            </div>
+                            <div class="slds-col">
+                                <p class="slds-text-body_regular">
+                                    Window: {systemInfo.data.maintenanceWindow}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </template>
+
+            <template if:false={systemInfo.data}>
+                <div class="slds-p-around_medium">
+                    <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+                </div>
+            </template>
+            
+            <template if:true={systemInfo.error}>
+                <p class="slds-text-color_error">Unable to fetch release info.</p>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>
